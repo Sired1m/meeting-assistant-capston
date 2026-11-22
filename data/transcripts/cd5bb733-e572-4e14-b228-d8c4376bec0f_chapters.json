@@ -1,0 +1,44 @@
+{
+  "chapters": [
+    {
+      "start": "00:00",
+      "title": "Introduction and Talk Agenda",
+      "summary": "The speaker introduces himself, his background, and outlines the five topics he will cover about design systems."
+    },
+    {
+      "start": "01:48",
+      "title": "Need for Design Systems and Definition",
+      "summary": "The speaker explains why design systems are needed due to product complexity and user focus, then defines design systems and lists their elements."
+    },
+    {
+      "start": "08:12",
+      "title": "Relating Products via Brand Architecture",
+      "summary": "The speaker discusses assessing the current product landscape and presents three brand architecture models that inform design system structure."
+    },
+    {
+      "start": "11:16",
+      "title": "Identifying Design System Users",
+      "summary": "The speaker distinguishes design system users from end users and identifies various roles such as developers, analysts, product owners, QA, and third parties."
+    },
+    {
+      "start": "14:13",
+      "title": "Options for Starting a Design System",
+      "summary": "The speaker outlines approaches to start a design system, including using existing systems or building on libraries, noting pros and cons."
+    },
+    {
+      "start": "16:46",
+      "title": "Three Design System Approach Options",
+      "summary": "The speaker presents three options for building a design system: using open-source libraries, using paid services like Telerik, or creating a custom design system, outlining pros and cons for each approach."
+    },
+    {
+      "start": "21:04",
+      "title": "Skills Required for Design System Team",
+      "summary": "The speaker details the skills needed for a design system team, including communication, UI design, UX research, accessibility, content design, programming, quality assurance, DevOps, and additional roles like product owner and scrum master."
+    },
+    {
+      "start": "25:43",
+      "title": "Recap and Closing Remarks",
+      "summary": "The speaker summarizes key decision points for starting a design system, including assessing dependencies, identifying users, choosing an approach, and determining team skills, then introduces himself and provides contact information."
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+streamlit
+chromadb
+FlagEmbedding
+transformers
+numpy
+langchain-text-splitters
+openai
+tenacity
+requests
+python-dotenv
