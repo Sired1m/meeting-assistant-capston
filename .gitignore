@@ -2,3 +2,4 @@
 *.json
 *.bin
 *.sqlite3
+/data
