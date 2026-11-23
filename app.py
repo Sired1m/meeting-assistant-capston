@@ -673,7 +673,7 @@ if uploaded_video:
 
         meeting_id = str(uuid.uuid4())
 
-        # Initialize paths before try
+        
         video_path = None
         audio_path = None
         pieces_dir = Path("data/pieces") / meeting_id
@@ -681,7 +681,7 @@ if uploaded_video:
         try:
             with st.spinner("Processing video..."):
 
-                # 1. Save video
+                
                 video_path = video_dir / (
                     f"{meeting_id}_{Path(uploaded_video.name).name}"
                 )
@@ -689,7 +689,7 @@ if uploaded_video:
                 with open(video_path, "wb") as f:
                     f.write(uploaded_video.getbuffer())
 
-                # 2. Extract audio
+                
                 audio_path = audio_dir / f"{meeting_id}.wav"
 
                 subprocess.run(
@@ -705,36 +705,36 @@ if uploaded_video:
                     capture_output=True
                 )
 
-                # 3. Split audio
+                
                 chunks = split_audio(audio_path, meeting_id)
 
-                # 4. Transcribe
+                
                 transcript_path = transcribe_chunks(chunks, meeting_id)
 
                 with open(transcript_path, "r", encoding="utf-8") as f:
                     raw = json.load(f)
 
-                # 5. Clean transcript
+                
                 clean = clean_transcript(raw)
 
-                # 6. Generate chapters
+                
                 chapters = create_chapters(clean, meeting_id)
                 clean = attach_chapters(clean, chapters)
 
-                # 7. Create RAG chunks
+                
                 rag_chunks = create_rag_chunks(clean, meeting_id)
 
-                # 8. Generate embeddings
+                
                 rag_chunks = create_embeddings(rag_chunks, meeting_id)
 
-                # 9. Store in ChromaDB
+                
                 count = store_in_chromadb(
                     rag_chunks,
                     meeting_id,
                     meeting_title
                 )
 
-                # Save cleaned transcript
+                
                 clean_path = (
                     Path("data/transcripts") /
                     f"{meeting_id}_clean.json"
@@ -760,21 +760,16 @@ if uploaded_video:
             st.error(f"Processing failed: {error}")
 
         finally:
-            # Delete uploaded video
+            
             if video_path and video_path.exists():
                 video_path.unlink()
 
-            # Delete extracted WAV
+            
             if audio_path and audio_path.exists():
                 audio_path.unlink()
 
-            # Delete temporary audio pieces
+            
             shutil.rmtree(pieces_dir, ignore_errors=True)
-
-
-
-
-
 
 
 def ask_openrouter(prompt, system_prompt):
@@ -882,9 +877,7 @@ with ask_tab:
                             )
 
                             passages = []
-                            for i, (doc, meta) in enumerate(zip(
-                                found["documents"][0], found["metadatas"][0]
-                            ), 1):
+                            for i, (doc, meta) in enumerate(zip(found["documents"][0], found["metadatas"][0]), 1):
                                 meta = meta or {}
                                 passages.append(
                                     f"[Source {i}] Chapter: {meta.get('chapter', 'Unknown')} "
@@ -942,10 +935,9 @@ with email_tab:
 
     else:
         st.write(
-            f"Generate a follow-up email for: **{selected_meeting_title}**"
+            f"Generate a follow-up email for: {selected_meeting_title}"
         )
 
-        # Separate email state for each meeting
         subject_key = f"email_subject_{selected_meeting_id}"
         body_key = f"email_body_{selected_meeting_id}"
         sent_key = f"email_sent_{selected_meeting_id}"
@@ -1059,7 +1051,7 @@ TRANSCRIPT:
             except Exception as error:
                 st.error(str(error))
 
-        # Show the draft for the currently selected meeting
+        
         if body_key in st.session_state:
 
             st.subheader("Review email")
@@ -1122,4 +1114,4 @@ TRANSCRIPT:
 
                 except Exception as error:
                     st.error(str(error))
-#end
+
