@@ -7,4 +7,4 @@ tenacity
 requests
 python-dotenv
 FlagEmbedding==1.4.2
-transformers==5.24.0
+transformers==5.23.0
