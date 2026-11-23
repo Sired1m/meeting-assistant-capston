@@ -39,50 +39,6 @@ ASR models were compared qualitatively on Arabic, English, and mixed Arabic/Engl
 
 Whisper Large-v3 was selected as the project's ASR model because it provided a practical balance across the tested languages. No ground-truth corpus, Word Error Rate (WER), or Character Error Rate (CER) benchmark was established, so these results should be treated as development observations rather than a standardized evaluation.
 
-## Run the Project
-
-### Requirements
-
-- Python (the project was developed with Python 3.12)
-- FFmpeg, with both `ffmpeg` and `ffprobe` available on your system PATH
-- OpenRouter API key
-- Resend API key and a verified sender domain (only needed to send emails)
-
-### Setup
-
-1. Clone or download this repository and open its folder in a terminal.
-2. Create and activate a virtual environment:
-
-   **Windows PowerShell**
-   ```powershell
-   py -3.12 -m venv .venv
-   .venv\Scripts\Activate.ps1
-   ```
-
-   **macOS / Linux**
-   ```bash
-   python3 -m venv .venv
-   source .venv/bin/activate
-   ```
-
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. Create a `.env` file in the project root:
-   ```env
-   OPENROUTER=your_openrouter_api_key
-   RESEND_API_KEY=your_resend_api_key
-   RESEND_FROM_EMAIL="Meeting Assistant <you@your-verified-domain.com>"
-   ```
-   Resend variables are only required for sending emails. Ensure `app.py` loads the file with `python-dotenv` before calling `os.getenv()`.
-5. Start the application:
-   ```bash
-   streamlit run app.py
-   ```
-6. Upload a meeting video, enter a meeting title, and select **Process meeting**. Once processing is complete, choose the meeting to view its transcript, ask questions, or draft and send a follow-up email.
-
-Do not commit `.env`, API keys, or private meeting data to GitHub. Add them to `.gitignore`.
 
 ## Repository Structure
 
