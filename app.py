@@ -1013,7 +1013,7 @@ End with a natural professional sentence inviting corrections or further discuss
 
 OUTPUT RULES:
 - Put "Subject: ..." on the first line.
-- Use plain text, not HTML.
+- Use plain text, not HTML, dont use markdown.
 - Use clear paragraph spacing.
 - Use bullet points only where they improve readability.
 - Do not force every section into the email. Omit sections that have no relevant information.
